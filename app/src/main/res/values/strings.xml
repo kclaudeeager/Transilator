@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Transilator</string>
+    <string name="gotonewPage"><a href="">Create new Transilation</a></string>
+</resources>
