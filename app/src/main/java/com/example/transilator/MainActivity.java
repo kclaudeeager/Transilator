@@ -64,6 +64,7 @@ translatedTXV=(TextView)findViewById(R.id.transilatedValue);
             public void onClick(View view) {
                 Intent newPageIntent=new Intent();
                 newPageIntent.setClass(getApplicationContext(),Set_New_Transilation.class);
+                newPageIntent.putExtra("Variables",variables);
                 startActivity(newPageIntent);
             }
         });
