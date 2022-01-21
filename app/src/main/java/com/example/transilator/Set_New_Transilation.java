@@ -32,22 +32,28 @@ public class Set_New_Transilation extends AppCompatActivity implements AdapterVi
          submitbtn=(Button)findViewById(R.id.Submit);
          valueText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
              @Override
-             public void onFocusChange(View view, boolean b) {
-                if(choosenLanguage.toLowerCase().equals(("Kinyarwanda").toLowerCase())){
-                    translation.setKinyarwanda(choosenLanguage.toLowerCase());
-                }
-                else if(choosenLanguage.toLowerCase().equals(("French").toLowerCase())){
-                    translation.setFrench(choosenLanguage.toLowerCase());
-                }
-                else if(choosenLanguage.toLowerCase().equals(("Swahili").toLowerCase())){
-                    translation.setKiswahil(choosenLanguage.toLowerCase());
-                }
-                else{
-                    translation.setEnglish(choosenLanguage.toLowerCase());
-                }
-                translation.setVariable(variable);
-                translation.setVariable(value);
-                Log.d("current object: ",translation.toString());
+             public void onFocusChange(View view, boolean hasFocus) {
+                 if (!hasFocus) {
+                     if (choosenLanguage.toLowerCase().equals(("Kinyarwanda").toLowerCase())) {
+                         translation.setKinyarwanda(choosenLanguage.toLowerCase());
+                         translation.setVariable(variable);
+                         translation.setVariable(value);
+                     } else if (choosenLanguage.toLowerCase().equals(("French").toLowerCase())) {
+                         translation.setFrench(choosenLanguage.toLowerCase());
+                         translation.setVariable(variable);
+                         translation.setVariable(value);
+                     } else if (choosenLanguage.toLowerCase().equals(("Swahili").toLowerCase())) {
+                         translation.setKiswahil(choosenLanguage.toLowerCase());
+                         translation.setVariable(variable);
+                         translation.setVariable(value);
+                     } else {
+                         translation.setEnglish(choosenLanguage.toLowerCase());
+                         translation.setVariable(variable);
+                         translation.setVariable(value);
+                     }
+
+                     Log.d("current object: ", translation.toString());
+                 }
              }
          });
          submitbtn.setOnClickListener(new View.OnClickListener() {

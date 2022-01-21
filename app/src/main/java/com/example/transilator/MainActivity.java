@@ -3,6 +3,7 @@ package com.example.transilator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -138,43 +139,58 @@ translatedTXV=(TextView)findViewById(R.id.transilatedValue);
     synchronized  public ArrayList<String> loadVariables(){
         // contacts=new ArrayList<Contact>();
         ArrayList<String> translations_variables=new ArrayList<>();
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        String url="https://ishyiga-transilation.herokuapp.com/demo/v1/translate/variables";
+        final ProgressDialog progressDialog = ProgressDialog.show(this, "", "Please wait for fetching...");
+        new Thread() {
+            public void run() {
+                try{
 
-        StringRequest request=new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            Log.d("RESPONSE", response);
+                    RequestQueue requestQueue= Volley.newRequestQueue(MainActivity.this);
+                    String url="https://ishyiga-transilation.herokuapp.com/demo/v1/translate/variables";
 
-                            JSONArray variables= new JSONArray(response);
-                            for (int i = 0; i < variables.length(); i++) {
-                                Log.d("Variable "+(i+1),variables.get(i).toString());
-                              if(!translations_variables.contains(variables.get(i))){
-                                  translations_variables.add(variables.get(i).toString());
-                              }
-                                //}
-                            }
-                            Log.i("array:",translations_variables.toString());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                    StringRequest request=new StringRequest(Request.Method.GET, url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        Log.d("RESPONSE", response);
+
+                                        JSONArray variables= new JSONArray(response);
+                                        for (int i = 0; i < variables.length(); i++) {
+                                            Log.d("Variable "+(i+1),variables.get(i).toString());
+                                            if(!translations_variables.contains(variables.get(i))){
+                                                translations_variables.add(variables.get(i).toString());
+                                            }
+                                            //}
+                                        }
+                                        Log.i("array:",translations_variables.toString());
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error",""+error.getMessage());
                         }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("Error",""+error.getMessage());
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                return super.getParams();
-            }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            return super.getParams();
+                        }
 
-        };
+                    };
 
-        requestQueue.add(request);
+                    requestQueue.add(request);
+                }
+                catch (Exception e) {
+                    Log.e("tag", e.getMessage());
+                }
+                // dismiss the progress dialog
+                progressDialog.dismiss();
+            }
+        }.start();
+
+
         return translations_variables;
     }
 
