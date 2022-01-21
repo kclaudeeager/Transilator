@@ -34,22 +34,23 @@ public class Set_New_Transilation extends AppCompatActivity implements AdapterVi
              @Override
              public void onFocusChange(View view, boolean hasFocus) {
                  if (!hasFocus) {
+                 value=valueText.getText().toString();
+                 variable=variableText.getText().toString();
+
+                         translation.setVariable(variable);
+                         translation.setVariable(value);
                      if (choosenLanguage.toLowerCase().equals(("Kinyarwanda").toLowerCase())) {
                          translation.setKinyarwanda(choosenLanguage.toLowerCase());
-                         translation.setVariable(variable);
-                         translation.setVariable(value);
+                         
                      } else if (choosenLanguage.toLowerCase().equals(("French").toLowerCase())) {
-                         translation.setFrench(choosenLanguage.toLowerCase());
-                         translation.setVariable(variable);
-                         translation.setVariable(value);
+                          translation.setFrench(choosenLanguage.toLowerCase());
+                         
                      } else if (choosenLanguage.toLowerCase().equals(("Swahili").toLowerCase())) {
                          translation.setKiswahil(choosenLanguage.toLowerCase());
-                         translation.setVariable(variable);
-                         translation.setVariable(value);
+                         
                      } else {
                          translation.setEnglish(choosenLanguage.toLowerCase());
-                         translation.setVariable(variable);
-                         translation.setVariable(value);
+                         
                      }
 
                      Log.d("current object: ", translation.toString());
