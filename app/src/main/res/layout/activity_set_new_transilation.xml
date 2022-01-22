@@ -18,81 +18,74 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="118dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
-        android:text="Enter your variable"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Spinner
-        android:id="@+id/Nlanguages"
-        android:layout_width="167dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toEndOf="@+id/variablename"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <EditText
         android:id="@+id/variablename"
-        android:layout_width="169dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="290dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="VariableName"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="124dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="52dp"
-        android:text="Choose language"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="167dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Enter the value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/variablename" />
-
     <EditText
-        android:id="@+id/languageValue"
-        android:layout_width="169dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
+        android:id="@+id/english"
+        android:layout_width="294dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:hint="value"
+        android:hint="English"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/Nlanguages" />
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/variablename" />
 
     <Button
         android:id="@+id/Submit"
         android:layout_width="314dp"
         android:layout_height="51dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="48dp"
         android:text="Submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/swahili" />
+
+    <EditText
+        android:id="@+id/kinyarwanda"
+        android:layout_width="301dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="32dp"
+        android:hint="Kinyarwanda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/english" />
+
+    <EditText
+        android:id="@+id/french"
+        android:layout_width="299dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+
+        android:hint="Francais"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kinyarwanda" />
+
+    <EditText
+        android:id="@+id/swahili"
+        android:layout_width="297dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:hint="Swahil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/french" />
 </androidx.constraintlayout.widget.ConstraintLayout>

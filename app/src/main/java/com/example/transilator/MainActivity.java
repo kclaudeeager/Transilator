@@ -3,6 +3,7 @@ package com.example.transilator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -140,6 +141,8 @@ translatedTXV=(TextView)findViewById(R.id.transilatedValue);
     synchronized  public ArrayList<String> loadVariables(){
         // contacts=new ArrayList<Contact>();
         ArrayList<String> translations_variables=new ArrayList<>();
+        Toast.makeText(MainActivity.this,"Loading valiables....",Toast.LENGTH_LONG).show();
+
         final ProgressDialog progressDialog = ProgressDialog.show(this, "", "Please wait for fetching...");
         new Thread() {
             public void run() {
